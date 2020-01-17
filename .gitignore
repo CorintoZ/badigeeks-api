@@ -25,5 +25,3 @@
 
 # Ignore coverage folder
 coverage
-
-Gemfile.lock
