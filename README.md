@@ -2,12 +2,16 @@
    Make sure you have postgresql and pgadmin installed to interact with the database, lastest version work
    https://wwww.postgresql.org/download
    https://www.pgadmin.org/download/
+   
+   Open pgAdmin make sure you have a server running, add new server with default configuration. Remember credentials
 
    git clone https://github.com/assimovt/badigeeks-api.git
 
    cp .env .env.local
 
    Modify .env.local with your local database credentials, .env is just for production
+   
+   rails db:create
 
 # Bootcamp Ruby template
 Here you will find the skeleton that you need to do a Rails project using the same toolset that we use @ badi.
