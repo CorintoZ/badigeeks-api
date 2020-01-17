@@ -1,3 +1,12 @@
+# First CLONE setup
+   Make sure you have postgresql and pgadmin installed to interact with the database
+
+   git clone https://github.com/assimovt/badigeeks-api.git
+
+   cp .env .env.local
+
+   Modify .env.local with your local database credentials, .env is just for production
+
 # Bootcamp Ruby template
 Here you will find the skeleton that you need to do a Rails project using the same toolset that we use @ badi.
 

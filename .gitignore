@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.history
 
 # Ignore uploaded files in development.
 /storage/*
@@ -20,6 +21,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/.env.*
 
 # Ignore coverage folder
 coverage
+
