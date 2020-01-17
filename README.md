@@ -1,5 +1,7 @@
 # First CLONE setup
-   Make sure you have postgresql and pgadmin installed to interact with the database
+   Make sure you have postgresql and pgadmin installed to interact with the database, lastest version work
+   https://wwww.postgresql.org/download
+   https://www.pgadmin.org/download/
 
    git clone https://github.com/assimovt/badigeeks-api.git
 
