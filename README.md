@@ -4,6 +4,7 @@
    https://www.pgadmin.org/download/
    
    Open pgAdmin make sure you have a server running, add new server with default configuration. Remember credentials
+   DEFAULT username = postgres
 
    git clone https://github.com/assimovt/badigeeks-api.git
    
