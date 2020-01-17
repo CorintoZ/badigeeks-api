@@ -4,9 +4,12 @@
    https://www.pgadmin.org/download/
    
    Open pgAdmin make sure you have a server running, add new server with default configuration. Remember credentials
+   DEFAULT username = postgres
 
    git clone https://github.com/assimovt/badigeeks-api.git
-
+   
+   bundle install
+   
    cp .env .env.local
 
    Modify .env.local with your local database credentials, .env is just for production
