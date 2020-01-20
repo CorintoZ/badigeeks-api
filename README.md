@@ -48,3 +48,8 @@ The current approach for the model structure can be found in the image below. It
 ![models list](public/badi_project_models.png). 
 
 If any changes are made to the models, the diagram can be edited by navigating to https://www.draw.io/ and importing the badi_project_models.xml file which can be found in the public project folder.
+
+## Fill the database
+
+In order to fill the database, you will have to execute the following command:
+   rake web_sc_namespace:web_scrapping
