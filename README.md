@@ -42,6 +42,19 @@ To check your test suite you can simply run `bundle exec rspec`, and after the e
 We encourage you to use [Rubocop](https://github.com/rubocop-hq/rubocop) and keep the code clean of offenses. Of course, you might find some rules that you don't like it, feel free to customize those if the team agreed.
 
 
+## Deploy on Heroku
+1 .- Download heroku client:
+  https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+2.- Login with the command  "$ heroku login" and use our badi account 
+  E-mail: BadiGeeksHubBackend@gmail.com 
+  Password: W0rk1ngfr0mb4d1
+3.- Add Heroku remote:
+  $ heroku git:remote -a geekshubbadi
+4.- Push the app to the  remote heroku by using:
+  $ git push heroku master
+5.- Deployed!
+
+
 ## Models structure and associations
 The current approach for the model structure can be found in the image below. It includes the defined models with its fields and associations among them. 
 
@@ -53,3 +66,4 @@ If any changes are made to the models, the diagram can be edited by navigating t
 
 In order to fill the database, you will have to execute the following command:
    rake web_sc_namespace:web_scrapping
+
