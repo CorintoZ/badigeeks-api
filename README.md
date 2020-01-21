@@ -1,3 +1,21 @@
+# First CLONE setup
+   Make sure you have postgresql and pgadmin installed to interact with the database, lastest version work
+   https://wwww.postgresql.org/download
+   https://www.pgadmin.org/download/
+   
+   Open pgAdmin make sure you have a server running, add new server with default configuration. Remember credentials
+   DEFAULT username = postgres
+
+   git clone https://github.com/assimovt/badigeeks-api.git
+   
+   bundle install
+   
+   cp .env .env.local
+
+   Modify .env.local with your local database credentials, .env is just for production
+   
+   rails db:create
+
 # Bootcamp Ruby template
 Here you will find the skeleton that you need to do a Rails project using the same toolset that we use @ badi.
 
@@ -23,6 +41,7 @@ To check your test suite you can simply run `bundle exec rspec`, and after the e
 ## Guidelines
 We encourage you to use [Rubocop](https://github.com/rubocop-hq/rubocop) and keep the code clean of offenses. Of course, you might find some rules that you don't like it, feel free to customize those if the team agreed.
 
+
 ## Deploy on Heroku
 1 .- Download heroku client:
   https://devcenter.heroku.com/articles/heroku-cli#download-and-install
@@ -34,3 +53,17 @@ We encourage you to use [Rubocop](https://github.com/rubocop-hq/rubocop) and kee
 4.- Push the app to the  remote heroku by using:
   $ git push heroku master
 5.- Deployed!
+
+
+## Models structure and associations
+The current approach for the model structure can be found in the image below. It includes the defined models with its fields and associations among them. 
+
+![models list](public/badi_project_models.png). 
+
+If any changes are made to the models, the diagram can be edited by navigating to https://www.draw.io/ and importing the badi_project_models.xml file which can be found in the public project folder.
+
+## Fill the database
+
+In order to fill the database, you will have to execute the following command:
+   rake web_sc_namespace:web_scrapping
+

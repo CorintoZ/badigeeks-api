@@ -13,6 +13,10 @@ gem 'puma', '~> 4.1'
 gem 'grape', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Enforces Rails best practices and coding conventions.
+gem 'rubocop-rails', require: false
+# Sharing configuration variables across environments
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -24,13 +28,18 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+group :test do
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'database_cleaner'
+end
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # Use rubocop to analyze code
-  gem 'rubocop', '~> 0.59.0', require: false
 end
 
 group :test do
