@@ -26,7 +26,7 @@ We encourage you to use [Rubocop](https://github.com/rubocop-hq/rubocop) and kee
 ## Deploy on Heroku
 1 .- Download heroku client:
   https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-2.- Login with the command heroku login and use our badi account 
+2.- Login with the command  "$ heroku login" and use our badi account 
   E-mail: BadiGeeksHubBackend@gmail.com 
   Password: W0rk1ngfr0mb4d1
 3.- Add Heroku remote:
