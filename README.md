@@ -22,3 +22,15 @@ To check your test suite you can simply run `bundle exec rspec`, and after the e
 
 ## Guidelines
 We encourage you to use [Rubocop](https://github.com/rubocop-hq/rubocop) and keep the code clean of offenses. Of course, you might find some rules that you don't like it, feel free to customize those if the team agreed.
+
+## Deploy on Heroku
+1 .- Download heroku client:
+  https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+2.- Login with the command heroku login and use our badi account 
+  E-mail: BadiGeeksHubBackend@gmail.com 
+  Password: W0rk1ngfr0mb4d1
+3.- Add Heroku remote:
+  $ heroku git:remote -a geekshubbadi
+4.- Push the app to the  remote heroku by using:
+  $ git push heroku master
+5.- Deployed!
