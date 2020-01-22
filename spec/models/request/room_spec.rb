@@ -7,4 +7,12 @@ RSpec.describe "room API", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "GET /rooms/:id" do
+    before { get "/api/v1/rooms/1" }
+
+    it "returns status code 200" do
+      expect(response).to have_http_status(200)
+    end
+  end
 end
