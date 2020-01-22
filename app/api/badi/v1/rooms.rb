@@ -9,6 +9,12 @@ module Badi
         desc "Return rooms"
         get do
         end
+
+        desc "Return specific room"
+        route_param :id do
+          get do
+          end
+        end
       end
     end
   end
