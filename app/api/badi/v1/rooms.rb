@@ -7,6 +7,12 @@ module Badi
 
       resource :rooms do
         desc "Return rooms"
+        params do
+          requires :city, type: String
+          requires :lat, type: Float
+          requires :lon, type: Float
+        end
+
         get do
         end
 
