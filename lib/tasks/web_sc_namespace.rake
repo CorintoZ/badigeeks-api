@@ -2,36 +2,33 @@ require "nokogiri"
 require "open-uri"
 
 namespace :web_sc_namespace do
-  desc "TODO"
+  desc "Web scrapper"
   task web_scrapping: :environment do
-    habitaciones = [505304, 501874, 446492, 500465, 506728, 527305, 85490, 464710, 59800, 526807]
+    data = File.read("./lib/tasks/rooms.json")
+    loaded_json = JSON.parse(data)
 
-    habitaciones.each do |habitacion|
-
-      # Fetch and parse HTML document
-      doc = Nokogiri::HTML(open("https://badi.com/es/room/#{habitacion}"))
-
-      doc.css("h1.room__title").each do |link|
-        @title = link.content
+    loaded_json.each do |room|
+      puts room["id"]
+      puts room["title"]
+      puts room["description"]
+      puts room["latitude"]
+      puts room["longitude"]
+      room["prices_attributes"].each do |price|
+        puts price["price"]
       end
 
-      doc.css("div.styled-components__FlexChild-jzrolq-0 h4").each do |link|
-        @price = link.content.gsub ".", ""
+      room["pictures"].each do |photo|
+        puts photo["url"]
       end
 
-      doc.css("div.form__fieldset p").each do |link|
-        @description = link.content
+      room["tenants"].each do |tenant|
+        puts tenant["first_name"]
+        puts tenant["last_name"]
+        puts tenant["birth_date"]
       end
 
-      doc.css("h1.Heading__StyledHeading-cuu5h0-0").each do |link|
-        @owner = link.content
-      end
-
-      req_payload = {
-        :title => @title, :price => @price, :description => @description,
-      }
-
-      Room.create!(req_payload)
+      puts "---------------------------------------------"
+      #Room.create!(req_payload)
     end
   end
 end
