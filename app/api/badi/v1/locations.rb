@@ -1,4 +1,4 @@
-require_relative "validations/lenght"
+require_relative "validations/length"
 
 module Badi
   module V1
