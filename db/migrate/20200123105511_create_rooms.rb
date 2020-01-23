@@ -7,6 +7,7 @@ class CreateRooms < ActiveRecord::Migration[6.0]
       t.decimal :lat
       t.decimal :lng
       t.string :kind
+      t.references :user, type: :uuid
 
       t.timestamps
     end
