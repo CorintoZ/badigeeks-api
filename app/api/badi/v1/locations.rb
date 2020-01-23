@@ -1,5 +1,3 @@
-require_relative "validations/length"
-
 module Badi
   module V1
     class Locations < Grape::API
@@ -11,7 +9,7 @@ module Badi
         desc "Return locations"
 
         params do
-          requires :keyword, type: String, length: 3
+          requires :keyword, type: String, values: ->(v) { v.length > 2 }
         end
 
         get do
