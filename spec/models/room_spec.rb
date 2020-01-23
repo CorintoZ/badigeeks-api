@@ -7,7 +7,6 @@ RSpec.describe Room, type: :model do
     should validate_presence_of(:description)
     should validate_presence_of(:lat)
     should validate_presence_of(:lng)
-    should validate_presence_of(:kint)
-    should validate_presence_of(:visits)
+    should validate_presence_of(:kind)
   end
 end
