@@ -6,8 +6,8 @@ class CreateRooms < ActiveRecord::Migration[6.0]
       t.string :title
       t.integer :price
       t.string :description
-      t.decimal :lat
-      t.decimal :lng
+      t.decimal :lat, :limit => 20
+      t.decimal :lng, :limit => 20
       t.string :kind
       t.references :user, type: :uuid
 

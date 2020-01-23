@@ -6,6 +6,6 @@ RSpec.describe User, type: :model do
   it { should have_many(:rooms) }
   it 'validates required fields' do
     should validate_presence_of(:name)
-    should validate_presence_of(:age)
+    should validate_presence_of(:date_of_birth)
   end
 end
