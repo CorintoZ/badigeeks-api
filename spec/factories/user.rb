@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :users do
+  factory :user do
     name { Faker::Name.name }
-    age { Faker::Number.between(from: 1, to: 120) }
+    date_of_birth { Faker::Date.birthday }
   end
 end
