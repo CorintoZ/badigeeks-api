@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rubocop-rails', require: false
 # Sharing configuration variables across environments
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'activerecord-postgis-adapter'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
