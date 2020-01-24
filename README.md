@@ -67,3 +67,5 @@ If any changes are made to the models, the diagram can be edited by navigating t
 In order to fill the database, you will have to execute the following command:
    rake web_sc_namespace:web_scrapping
 
+
+
