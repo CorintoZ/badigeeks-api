@@ -29,14 +29,13 @@ ActiveRecord::Schema.define(version: 2020_01_24_094758) do
     t.string "title"
     t.integer "price"
     t.string "description"
+    t.decimal "lng"
     t.decimal "lat"
-    t.geography "room_lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "room_lnglat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.string "kind"
-    t.uuid "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_lonlat"], name: "index_rooms_on_room_lonlat", using: :gist
-    t.index ["user_id"], name: "index_rooms_on_user_id"
+    t.index ["room_lnglat"], name: "index_rooms_on_room_lnglat", using: :gist
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
