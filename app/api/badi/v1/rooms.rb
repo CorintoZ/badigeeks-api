@@ -9,11 +9,14 @@ module Badi
         desc "Return rooms"
         params do
           requires :city, type: String
-          requires :lat, type: Float
-          requires :lon, type: Float
+          requires :xmin, type: Float
+          requires :ymin, type: Float
+          requires :xmax, type: Float
+          requires :ymax, type: Float
         end
 
         get do
+          present Room.within(params[:xmin], params[:ymin], params[:xmax], params[:ymax])
         end
 
         desc "Return specific room"
