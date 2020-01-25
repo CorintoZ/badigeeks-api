@@ -1,5 +1,6 @@
 require "nokogiri"
 require "open-uri"
+require "faker"
 
 namespace :badi_api_request do
   desc "Badi API request"
@@ -37,7 +38,7 @@ namespace :badi_api_request do
           puts tenant["last_name"]
           puts tenant["birth_date"]
         end
-
+        puts Faker::Number.between(from: 1, to: 10_000)
         puts "---------------------------------------------"
         #Room.create!(req_payload)
       end
