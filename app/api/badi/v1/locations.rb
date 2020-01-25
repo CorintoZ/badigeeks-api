@@ -13,6 +13,7 @@ module Badi
         end
 
         get do
+          puts LocationQuery.new(params[:keyword]).getResults
         end
       end
     end
