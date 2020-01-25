@@ -3,8 +3,8 @@ class LocationQuery
     @query = query
   end
 
-  def getResults
-    results = Geocoder.search("Paris")
-    results.first.coordinates
+  def get_results
+    results = Geocoder.search(@query)
+    results[0..5]
   end
 end
