@@ -20,27 +20,26 @@ namespace :badi_api_request do
       loaded_json = JSON.parse(response.body)
 
       loaded_json.each do |room|
-        puts room["id"]
-        puts room["title"]
-        puts room["description"]
-        puts room["latitude"]
-        puts room["longitude"]
-        room["prices_attributes"].each do |price|
-          puts price["price"]
-        end
-
-        room["pictures"].each do |photo|
-          puts photo["url"]
-        end
-
         room["tenants"].each do |tenant|
-          puts tenant["first_name"]
-          puts tenant["last_name"]
-          puts tenant["birth_date"]
+          if tenant["biological_sex"] == 1
+            @gender = "female"
+          else
+            @gender = "male"
+          end
+
+          @new_user = User.create!(name: "#{tenant["first_name"]} #{tenant["last_name"]}", date_of_birth: tenant["birth_date"], bio: tenant["small_bio"], gender: @gender)
         end
-        puts Faker::Number.between(from: 1, to: 10_000)
-        puts "---------------------------------------------"
-        #Room.create!(req_payload)
+
+        room["prices_attributes"].each do |prices_attributes|
+          @price = prices_attributes["price"]
+        end
+
+        @new_room = Room.create!(title: room["title"], price: @price, description: room["description"], kind: room["city"], lat: room["latitude"], lng: room["longitude"], user: @new_user)
+
+        room["pictures"].each_with_index do |photo, index|
+          @photo = Photo.create!(position: (index + 1), url_small_photo: photo["width_500_url"], url_big_photo: photo["width_1080_url"], room: @new_room)
+        end
+        #puts Faker::Number.between(from: 1, to: 10_000)
       end
     end
   end
