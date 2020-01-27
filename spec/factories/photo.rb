@@ -2,8 +2,9 @@
 
 FactoryBot.define do
   factory :photo do
-    position { Faker::Number.number(5) }
+    position { Faker::Number.between(from: 1, to: 100) } 
     url_small_photo {'https://d1jhx8f0okmpxm.cloudfront.net/uploads/pictures/width_100_f4527618-eaf7-4fff-a889-24116c06427c.jpeg'}
     url_big_photo {'https://d1jhx8f0okmpxm.cloudfront.net/uploads/pictures/width_1080_f4527618-eaf7-4fff-a889-24116c06427c.jpeg'}
+    room_id {nil}
   end
 end
