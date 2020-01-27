@@ -22,7 +22,7 @@ module Badi
         route_param :id do
           get do
             room = Room.find(params[:id])
-            present room
+            present room, with: Badi::Entities::RoomDetail
           end
         end
       end
