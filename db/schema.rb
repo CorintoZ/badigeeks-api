@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 2020_01_23_112023) do
     t.string "title"
     t.integer "price"
     t.string "description"
+    t.string "kind"
+    t.integer "room_size"
+    t.integer "flat_size"
     t.decimal "lat"
     t.decimal "lng"
-    t.string "kind"
     t.uuid "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
