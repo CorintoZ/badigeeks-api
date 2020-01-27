@@ -34,12 +34,12 @@ namespace :badi_api_request do
           @price = prices_attributes["price"]
         end
 
-        @new_room = Room.create!(title: room["title"], price: @price, description: room["description"], kind: room["city"], lat: room["latitude"], lng: room["longitude"], user: @new_user)
+        @new_room = Room.create!(title: room["title"], price: @price, description: room["description"], kind: room["city"], room_size: Faker::Number.between(from: 3, to: 15), flat_size: Faker::Number.between(from: 30, to: 200), lat: room["latitude"], lng: room["longitude"], user: @new_user)
 
         room["pictures"].each_with_index do |photo, index|
           @photo = Photo.create!(position: (index + 1), url_small_photo: photo["width_500_url"], url_big_photo: photo["width_1080_url"], room: @new_room)
         end
-        #puts Faker::Number.between(from: 1, to: 10_000)
+        puts Faker::Number.between(from: 1, to: 10_000)
       end
     end
   end
