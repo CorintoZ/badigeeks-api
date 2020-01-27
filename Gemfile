@@ -11,6 +11,7 @@ gem "pg", ">= 1.2.2"
 gem "puma", "~> 4.1"
 # Use Grape as the framework for creating REST-like APIs
 gem "grape", "~> 1.2"
+gem "grape-entity"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
 # Enforces Rails best practices and coding conventions.

@@ -14,6 +14,8 @@ module Badi
         end
 
         get do
+          rooms = Room.all()
+          present rooms, with: Badi::Entities::RoomList
         end
 
         desc "Return specific room"
