@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :photos do
+  factory :photo do
     position { Faker::Number.number(5) }
+    url_small_photo {'https://d1jhx8f0okmpxm.cloudfront.net/uploads/pictures/width_100_f4527618-eaf7-4fff-a889-24116c06427c.jpeg'}
+    url_big_photo {'https://d1jhx8f0okmpxm.cloudfront.net/uploads/pictures/width_1080_f4527618-eaf7-4fff-a889-24116c06427c.jpeg'}
   end
 end

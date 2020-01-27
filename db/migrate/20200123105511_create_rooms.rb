@@ -6,8 +6,12 @@ class CreateRooms < ActiveRecord::Migration[6.0]
       t.string :title
       t.integer :price
       t.string :description
-      t.st_point :room_lnglat, geographic: true
       t.string :kind
+      t.integer :room_size
+      t.integer :flat_size
+      t.decimal :lat, :limit => 20
+      t.decimal :lng, :limit => 20
+      t.st_point :room_lnglat, geographic: true
       t.references :user, type: :uuid
 
       t.timestamps

@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_01_24_094758) do
 
   create_table "photos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "position"
+    t.string "url_small_photo"
+    t.string "url_big_photo"
     t.uuid "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,18 +31,24 @@ ActiveRecord::Schema.define(version: 2020_01_24_094758) do
     t.string "title"
     t.integer "price"
     t.string "description"
-    t.geography "room_lnglat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.string "kind"
+    t.integer "room_size"
+    t.integer "flat_size"
+    t.decimal "lat"
+    t.decimal "lng"
     t.uuid "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_lnglat"], name: "index_rooms_on_room_lnglat", using: :gist
     t.index ["user_id"], name: "index_rooms_on_user_id"
+    t.geography "room_lnglat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.index ["room_lnglat"], name: "index_rooms_on_room_lnglat", using: :gist
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.datetime "date_of_birth"
+    t.string "bio"
+    t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

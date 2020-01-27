@@ -9,8 +9,10 @@ RSpec.describe Room, type: :model do
     should validate_presence_of(:title)
     should validate_presence_of(:price)
     should validate_presence_of(:description)
+    should validate_presence_of(:kind)
+    should validate_presence_of(:room_size)
+    should validate_presence_of(:flat_size)
     should validate_presence_of(:lat)
     should validate_presence_of(:lng)
-    should validate_presence_of(:kind)
   end
 end

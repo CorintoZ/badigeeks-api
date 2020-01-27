@@ -22,6 +22,8 @@ module Badi
         desc "Return specific room"
         route_param :id do
           get do
+            room = Room.find(params[:id])
+            present room
           end
         end
       end
