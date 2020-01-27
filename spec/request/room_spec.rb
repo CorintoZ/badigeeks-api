@@ -21,6 +21,9 @@ RSpec.describe "room API", type: :request do
       expect(json["price"]).to eq(room.price)
       expect(json["description"]).to eq(room.description)
       expect(json["kind"]).to eq(room.kind)
+      expect(json["room_size"]).to eq(room.room_size)
+      expect(json["flat_size"]).to eq(room.flat_size)
+
 
       expect(response).to have_http_status(200)
     end
