@@ -17,7 +17,9 @@ gem "bootsnap", ">= 1.4.2", require: false
 # Enforces Rails best practices and coding conventions.
 gem "rubocop-rails", require: false
 # Sharing configuration variables across environments
-gem "dotenv-rails", groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
+# Complete geocoding solution for Ruby
+gem 'geocoder'
 # Makes consuming restful web services dead easy.
 gem "httparty"
 
