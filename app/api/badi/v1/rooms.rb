@@ -16,14 +16,14 @@ module Badi
         end
 
         get do
-          present Room.within(params[:xmin], params[:ymin], params[:xmax], params[:ymax])
+          present Room.within(params[:xmin], params[:ymin], params[:xmax], params[:ymax]), with Badi::Entities::RoomList
         end
 
         desc "Return specific room"
         route_param :id do
           get do
             room = Room.find(params[:id])
-            present room
+            present room, with: Badi::Entities::RoomDetail
           end
         end
       end
