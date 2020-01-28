@@ -1,6 +1,6 @@
 require "nokogiri"
 require "open-uri"
-require "faker"
+#require "faker"
 
 namespace :badi_api_request do
   desc "Badi API request"
