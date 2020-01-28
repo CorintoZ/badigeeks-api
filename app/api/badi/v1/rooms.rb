@@ -1,25 +1,24 @@
 module Badi
   module V1
     class Rooms < Grape::API
-      version "v1", using: :path
+      version 'v1', using: :path
       format :json
       prefix :api
 
       resource :rooms do
-        desc "Return rooms"
+        desc 'Return rooms'
         params do
-          requires :city, type: String
-          requires :xmin, type: Float
-          requires :ymin, type: Float
-          requires :xmax, type: Float
-          requires :ymax, type: Float
+          requires :x1, type: Float, values: ->(v) { v.between?(-180.0, 180.0) }
+          requires :y1, type: Float, values: ->(v) { v.between?(-90.0, 90.0) }
+          requires :x2, type: Float, values: ->(v) { v.between?(-180.0, 180.0) }
+          requires :y2, type: Float, values: ->(v) { v.between?(-90.0, 90) }
         end
 
         get do
-          present Room.within(params[:xmin], params[:ymin], params[:xmax], params[:ymax]), with Badi::Entities::RoomList
+          present Room.within(params[:x1], params[:y1], params[:x2], params[:y2]), with: Badi::Entities::RoomList
         end
 
-        desc "Return specific room"
+        desc 'Return specific room'
         route_param :id do
           get do
             room = Room.find(params[:id])
