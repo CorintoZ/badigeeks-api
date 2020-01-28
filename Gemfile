@@ -18,6 +18,8 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "rubocop-rails", require: false
 # Sharing configuration variables across environments
 gem 'dotenv-rails', groups: [:development, :test]
+# Provides access to features of the PostGIS geospatial database from ActiveRecord
+gem 'activerecord-postgis-adapter'
 # Complete geocoding solution for Ruby
 gem 'geocoder'
 # Makes consuming restful web services dead easy.
