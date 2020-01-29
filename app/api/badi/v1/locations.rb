@@ -13,7 +13,7 @@ module Badi
         end
 
         get do
-          present LocationQuery.new(params[:keyword]).get_results
+          present LocationQuery.new(params[:keyword]).get_results, with: Badi::Entities::Location
         end
       end
     end
