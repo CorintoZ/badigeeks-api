@@ -11,18 +11,17 @@ module Badi
       resource :rooms do
         desc "Return rooms"
         params do
-          requires :x1, type: Float, values: ->(v) { v.between?(-180.0, 180.0) }
-          requires :y1, type: Float, values: ->(v) { v.between?(-90.0, 90.0) }
-          requires :x2, type: Float, values: ->(v) { v.between?(-180.0, 180.0) }
-          requires :y2, type: Float, values: ->(v) { v.between?(-90.0, 90) }
+          }
+            v[0].to_f.between?(-180.0, 180.0) && v[1].to_f.between?(-90.0, 90.0) && v[2].to_f.between?(-180.0, 180.0) && v[3].to_f.between?(-90.0,90)
+            v=v.split(',')
+          requires :bounds, type: String, values: ->(v) {
           requires :page, type: Integer
           requires :size, type: Integer
           optional :sort, type: Integer, values: [2, 3]
         end
-
         get do
+          present Room.within(params[:bounds]), with: Badi::Entities::RoomList
           @rooms = Room.within(params[:x1], params[:y1], params[:x2], params[:y2]).paginate(page: params[:page], per_page: params[:size]).order(sorting(params[:sort]))
-
           present @rooms, with: Badi::Entities::RoomList
         end
 

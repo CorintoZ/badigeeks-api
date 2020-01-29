@@ -13,8 +13,9 @@ class Room < ApplicationRecord
   validates :flat_size, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 30, less_than_or_equal: 200 }
   validates :lat, presence: true, numericality: { minimum: -90, maximum: +90 }
   validates :lng, presence: true, numericality: { minimum: -180, maximum: +180 }
-  scope :within,->(xmin, ymin, xmax, ymax) {
+  scope :within, lambda { |bounds|
+    bounds = bounds.split(',')
     where(%{ rooms.room_lnglat && ST_MakeEnvelope(?,?,?,?)
-    }, xmin, ymin, xmax, ymax)
+    }, bounds[0].to_f, bounds[1].to_f, bounds[2].to_f, bounds[3].to_f)
   }
 end
