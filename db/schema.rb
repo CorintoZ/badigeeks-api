@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_105100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "photos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "position"
@@ -35,9 +36,11 @@ ActiveRecord::Schema.define(version: 2020_01_27_105100) do
     t.integer "flat_size"
     t.decimal "lat"
     t.decimal "lng"
+    t.geography "room_lnglat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.uuid "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_lnglat"], name: "index_rooms_on_room_lnglat", using: :gist
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 

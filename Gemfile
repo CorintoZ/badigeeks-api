@@ -18,8 +18,15 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "rubocop-rails", require: false
 # Sharing configuration variables across environments
 gem "dotenv-rails", groups: [:development, :test]
+# Provides access to features of the PostGIS geospatial database from ActiveRecord
+gem "activerecord-postgis-adapter"
+# Complete geocoding solution for Ruby
+gem "geocoder"
 # Makes consuming restful web services dead easy.
 gem "httparty"
+gem "faker"
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem "will_paginate", "~> 3.1.0"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -34,8 +41,9 @@ end
 group :test do
   gem "factory_bot_rails"
   gem "shoulda-matchers"
-  gem "faker"
   gem "database_cleaner"
+  # Use SimpleCov to analyze the code coverage
+  gem "simplecov", require: false
 end
 
 group :development do
@@ -43,11 +51,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
-end
-
-group :test do
-  # Use SimpleCov to analyze the code coverage
-  gem "simplecov", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
