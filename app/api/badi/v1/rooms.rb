@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 module Badi
+  require "active_record/errors"
+
   module V1
     class Rooms < Grape::API
-      require_relative '../validations/bounds_checker'
+      require_relative "./validations/bounds_checker"
       version "v1", using: :path
 
       helpers Helpers::RoomSortingHelpers
@@ -19,7 +23,11 @@ module Badi
         end
         get do
           @rooms = Room.within(params[:bounds]).paginate(page: params[:page], per_page: params[:size]).order(sorting(params[:sort]))
-          present @rooms, with: Badi::Entities::RoomList
+          if @rooms.empty?
+            raise Badi::V1::ExceptionsHandler::NoContent
+          else
+            present @rooms, with: Badi::Entities::RoomList
+          end
         end
 
         desc "Return specific room"
