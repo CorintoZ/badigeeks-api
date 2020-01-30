@@ -50,5 +50,4 @@ test:
 production:
   <<: *default
   database: badi_geeks_api_production
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
