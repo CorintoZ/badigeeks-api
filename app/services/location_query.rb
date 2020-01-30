@@ -4,7 +4,6 @@ class LocationQuery
   end
 
   def get_results
-    results = Geocoder.search(@query)
-    results[0..5]
+    Geocoder.search(@query, params: { countrycodes: 'es' })
   end
 end
