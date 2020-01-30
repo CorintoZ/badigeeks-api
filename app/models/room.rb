@@ -4,15 +4,15 @@ class Room < ApplicationRecord
   has_many :photos, dependent: :destroy
   belongs_to :user
 
-  validates :title, presence: true, length: { minimum: 1, maximum: 500 }
-  validates :price, presence: true, numericality: { only_float: true, greater_than: 0, less_than: 10_000 }
-  validate :description
-  validate :room_lnglat
-  validates :kind, presence: true
-  validates :room_size, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 3, less_than_or_equal: 15 }
-  validates :flat_size, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 30, less_than_or_equal: 200 }
-  validates :lat, presence: true, numericality: { minimum: -90, maximum: +90 }
-  validates :lng, presence: true, numericality: { minimum: -180, maximum: +180 }
+  validates :title, presence: true, length: { minimum: 2, maximum: 500 }
+  validates :price, presence: true, numericality: { only_float: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 10_000 } 
+  validates :description, length: { minimum: 5, maximum: 500 }
+  validate  :room_lnglat
+  validates :kind, presence: true, length: { minimum: 2, maximum: 100 }
+  validates :room_size, presence: true, numericality: { only_float: true, greater_than_or_equal_to: 3, less_than_or_equal_to: 15 }  
+  validates :flat_size, presence: true, numericality: { only_float: true, greater_than_or_equal_to: 30, less_than_or_equal_to: 200 }  
+  validates :lat, presence: true, numericality: { only_float: true, greater_than_or_equal_to: -90, less_than_or_equal_to: +90 }
+  validates :lng, presence: true, numericality: { only_float: true, greater_than_or_equal_to: -180, less_than_or_equal_to: +180 }
   scope :within, lambda { |bounds|
     bounds = bounds.split(',')
     where(%{ rooms.room_lnglat && ST_MakeEnvelope(?,?,?,?)
