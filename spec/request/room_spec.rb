@@ -6,7 +6,7 @@ RSpec.describe 'room API', type: :request do
     let!(:user) { create(:user) }
     let!(:rooms) { create_list(:room, 5, user_id: user.id) }
 
-    before { get '/api/v1/rooms?x1=2.021484&y1=41.319591&x2=2.283096&y2=41.477204' }
+    before { get '/api/v1/rooms?bounds=2.021484,41.319591,2.283096,41.477204&page=1&size=5' }
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
     end
