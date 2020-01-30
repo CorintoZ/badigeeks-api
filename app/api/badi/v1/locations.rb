@@ -13,7 +13,12 @@ module Badi
         end
 
         get do
-          present LocationQuery.new(params[:keyword]).get_results
+          @query = LocationQuery.new(params[:keyword]).get_results
+          if @query.empty?
+            raise Badi::V1::ExceptionsHandler::NoContent
+          else
+            present @query
+          end
         end
       end
     end
