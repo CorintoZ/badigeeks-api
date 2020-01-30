@@ -5,7 +5,7 @@ module Badi
 
   module V1
     class Rooms < Grape::API
-      require_relative '../validations/bounds_checker'
+      require_relative "./validations/bounds_checker"
       version "v1", using: :path
 
       helpers Helpers::RoomSortingHelpers
