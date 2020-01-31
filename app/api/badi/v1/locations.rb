@@ -17,7 +17,7 @@ module Badi
           if @query.empty?
             raise Badi::V1::ExceptionsHandler::NoContent
           else
-            present @query
+            present @query, with: Badi::Entities::Location
           end
         end
       end
