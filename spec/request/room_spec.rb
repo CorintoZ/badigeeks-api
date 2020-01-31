@@ -53,5 +53,12 @@ RSpec.describe 'room API', type: :request do
 
       expect(response).to have_http_status(200)
     end
+
+    context 'when room no exists' do
+      before { get '/api/v1/rooms/1000' }
+      it 'return statuscode = 404' do
+        expect(response).to have_http_status(404)
+      end
+    end
   end
 end

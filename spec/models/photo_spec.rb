@@ -7,4 +7,8 @@ RSpec.describe Photo, type: :model do
     should validate_presence_of(:url_small_photo)
     should validate_presence_of(:url_big_photo)
   end
+
+  it 'validate greate && less position' do
+    should validate_numericality_of(:position).is_greater_than_or_equal_to(10)
+  end
 end
