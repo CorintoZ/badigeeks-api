@@ -16,4 +16,16 @@ RSpec.describe "Location API request", type: :request do
       expect(response).to have_http_status(400)
     end
   end
+
+  describe "GET /locations?keyword=no+results" do
+    before { get "/api/v1/locations?keyword=no+results" }
+
+    it "returns status code 204 when no results" do
+      expect(response).to have_http_status(204)
+    end
+
+    it 'return empty' do
+      expect(response.body).to be_empty
+    end
+  end
 end
