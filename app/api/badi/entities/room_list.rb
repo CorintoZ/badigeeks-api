@@ -25,7 +25,7 @@ module Badi
       expose :price
       expose :kind
       expose :photos, using: Badi::Entities::PhotosList
-      expose :owner, using: Badi::Entities::UserList
+      expose :user, using: Badi::Entities::UserList
     end
   end
 end
