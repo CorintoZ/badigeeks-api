@@ -5,7 +5,7 @@ module Badi
         extend Grape::API::Helpers
 
         def sorting(type, order)
-          return "#{type} #{order} "
+          return "#{type} #{order}"
         end
       end
     end
