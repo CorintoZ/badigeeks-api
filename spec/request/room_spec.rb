@@ -53,7 +53,7 @@ RSpec.describe "room API", type: :request do
       expect(json["title"]).to eq(room.title)
       expect(json["price"]).to eq(room.price)
       expect(json["description"]).to eq(room.description)
-      expect(json["kind"]).to eq(room.kind)
+      expect(json["city"]).to eq(room.city)
       expect(json["lat"].to_f).to eq(room.lat.to_f)
       expect(json["lng"].to_f).to eq(room.lng.to_f)
       expect(json["room_size"]).to eq(room.room_size)

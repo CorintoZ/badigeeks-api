@@ -36,7 +36,7 @@ namespace :badi_api_request do
           @price = prices_attributes['price']
         end
         point = "POINT (#{room["longitude"]} #{room["latitude"]})"
-        @new_room = Room.create!(title: room["title"], price: @price, description: room["description"], room_lnglat: point, kind: room["city"], room_size: Faker::Number.between(from: 3, to: 15), flat_size: Faker::Number.between(from: 30, to: 200), lat: room["latitude"], lng: room["longitude"], user: @new_user)
+        @new_room = Room.create!(title: room["title"], price: @price, description: room["description"], room_lnglat: point, city: room["city"], room_size: Faker::Number.between(from: 3, to: 15), flat_size: Faker::Number.between(from: 30, to: 200), lat: room["latitude"], lng: room["longitude"], user: @new_user)
 
         room['pictures'].each_with_index do |photo, index|
           @photo = Photo.create!(position: (index + 1), url_small_photo: photo['width_500_url'], url_big_photo: photo['width_1080_url'], room: @new_room)
