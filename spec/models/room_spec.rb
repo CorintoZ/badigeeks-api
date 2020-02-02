@@ -8,7 +8,7 @@ RSpec.describe Room, type: :model do
   it 'validates required fields' do
     should validate_presence_of(:title)
     should validate_presence_of(:price)
-    should validate_presence_of(:city)
+    should validate_presence_of(:kind)
     should validate_presence_of(:room_size)
     should validate_presence_of(:flat_size)
     should validate_presence_of(:lat)
@@ -30,9 +30,9 @@ RSpec.describe Room, type: :model do
     should validate_length_of(:description).is_at_most(500)
   end
 
-  it 'validate city min/max title' do
-    should validate_length_of(:city).is_at_least(2)
-    should validate_length_of(:city).is_at_most(100)
+  it 'validate kind min/max title' do
+    should validate_length_of(:kind).is_at_least(2)
+    should validate_length_of(:kind).is_at_most(100)
   end
 
   it 'validate greate && less room_size' do

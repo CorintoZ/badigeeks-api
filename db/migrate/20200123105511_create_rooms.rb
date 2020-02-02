@@ -6,7 +6,7 @@ class CreateRooms < ActiveRecord::Migration[6.0]
       t.string :title
       t.integer :price
       t.string :description
-      t.string :city
+      t.string :kind
       t.integer :room_size
       t.integer :flat_size
       t.decimal :lat, :limit => 20
