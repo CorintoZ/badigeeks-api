@@ -19,10 +19,13 @@ module Badi
           requires :bounds, type: String, bounds_checker: true
           requires :page, type: Integer
           requires :size, type: Integer
-          optional :sort, type: Integer, values: [2, 3]
+          optional :type, type: String, values: ["price"]
+          given :type do
+            requires :order, type: String, values: ["ASC", "asc", "DESC", "desc"]
+          end
         end
         get do
-          @rooms = Room.within(params[:bounds]).paginate(page: params[:page], per_page: params[:size]).order(sorting(params[:sort]))
+          @rooms = Room.within(params[:bounds]).paginate(page: params[:page], per_page: params[:size]).order(sorting(params[:type], params[:order]))
           if @rooms.empty?
             raise Badi::V1::ExceptionsHandler::NoContent
           else
