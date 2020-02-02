@@ -5,7 +5,7 @@ FactoryBot.define do
     title { Faker::Lorem.words(rand(2..500)) }
     price { Faker::Number.between(from: 1, to: 10_000) }
     description { Faker::Lorem.words(rand(5..500)) }
-    city { 'Barcelona' }
+    kind { 'Barcelona' }
     room_size { Faker::Number.between(from: 3, to: 15) }
     flat_size { Faker::Number.between(from: 30, to: 200) }
     lat { 41.398574 }

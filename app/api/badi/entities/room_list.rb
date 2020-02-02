@@ -23,7 +23,7 @@ module Badi
       expose :id
       expose :title
       expose :price
-      expose :city
+      expose :kind
       expose :photos, using: Badi::Entities::PhotosList
       expose :owner, using: Badi::Entities::UserList 
     end

@@ -27,7 +27,7 @@ module Badi
       expose :price
       expose :lat
       expose :lng
-      expose :city
+      expose :kind
       expose :room_size
       expose :flat_size
       expose :photos, using: Badi::Entities::PhotosDetail
