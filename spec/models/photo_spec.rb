@@ -4,8 +4,8 @@ RSpec.describe Photo, type: :model do
   it { should belong_to(:room) }
   it 'validates required fields' do
     should validate_presence_of(:position)
-    should validate_presence_of(:url_small_photo)
-    should validate_presence_of(:url_big_photo)
+    should validate_presence_of(:url_small)
+    should validate_presence_of(:url_big)
   end
 
   it 'validate greate && less position' do

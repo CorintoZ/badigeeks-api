@@ -53,7 +53,7 @@ RSpec.describe "room API", type: :request do
       expect(json["title"]).to eq(room.title)
       expect(json["price"]).to eq(room.price)
       expect(json["description"]).to eq(room.description)
-      expect(json["kind"]).to eq(room.kind)
+      expect(json["city"]).to eq(room.city)
       expect(json["lat"].to_f).to eq(room.lat.to_f)
       expect(json["lng"].to_f).to eq(room.lng.to_f)
       expect(json["room_size"]).to eq(room.room_size)
@@ -62,7 +62,7 @@ RSpec.describe "room API", type: :request do
       expect(json["owner"]["age"]).to eq(calculate_age(owner.date_of_birth))
       expect(json["owner"]["gender"]).to eq(owner.gender)
       expect(json["photos"][0]["position"]).to eq(photo.position.to_i)
-      expect(json["photos"][0]["url_big_photo"]).to eq(photo.url_big_photo)
+      expect(json["photos"][0]["url_big"]).to eq(photo.url_big)
 
       expect(response).to have_http_status(200)
     end
