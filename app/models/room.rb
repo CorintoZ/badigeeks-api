@@ -4,7 +4,7 @@ class Room < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 1, maximum: 1000 }
   validates :price, presence: true, numericality: { only_float: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 10_000 }
-  validates :description, length: { maximum: 1000 }
+  validates :description, length: { maximum: 5000 }
   validate :room_lnglat
   validates :city, presence: true, length: { minimum: 1, maximum: 500 }
   validates :room_size, presence: true, numericality: { only_interger: true, greater_than_or_equal_to: 3, less_than_or_equal_to: 15 }

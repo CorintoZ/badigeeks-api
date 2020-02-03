@@ -14,6 +14,6 @@ RSpec.describe User, type: :model do
   end
 
   it 'validate lenght min/max bio' do
-    should validate_length_of(:bio).is_at_most(500)
+    should validate_length_of(:bio).is_at_most(5000)
   end
 end

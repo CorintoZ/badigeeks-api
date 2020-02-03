@@ -3,6 +3,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 1, maximum: 500 }
   validates :date_of_birth, presence: true
-  validates :bio, length: { maximum: 500 }
+  validates :bio, length: { maximum: 5000 }
   validates :gender, presence: true, inclusion: { in: %w[male female] }
 end
