@@ -27,11 +27,9 @@ module Badi
         end
         get do
           @rooms = Room.within(params[:bounds]).where(filtering(params[:min], params[:max])).order(sorting(params[:order_type], params[:order])).paginate(page: params[:page], per_page: params[:size])
-          if @rooms.empty?
-            raise Badi::V1::ExceptionsHandler::NoContent
-          else
-            present @rooms, with: Badi::Entities::RoomList
-          end
+          raise Badi::V1::ExceptionsHandler::NoContent if @rooms.empty?
+
+          present @rooms, with: Badi::Entities::RoomList
         end
 
         desc 'Return specific room'

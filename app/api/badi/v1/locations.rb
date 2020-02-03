@@ -14,11 +14,9 @@ module Badi
 
         get do
           @query = LocationQuery.new(params[:keyword]).get_results
-          if @query.empty?
-            raise Badi::V1::ExceptionsHandler::NoContent
-          else
-            present @query, with: Badi::Entities::Location
-          end
+          raise Badi::V1::ExceptionsHandler::NoContent if @query.empty?
+
+          present @query, with: Badi::Entities::Location
         end
       end
     end
