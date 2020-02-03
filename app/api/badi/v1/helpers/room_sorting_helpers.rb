@@ -4,15 +4,8 @@ module Badi
       module RoomSortingHelpers
         extend Grape::API::Helpers
 
-        def sorting(params)
-          case params
-          when 2
-            "price DESC"
-          when 3
-            "price ASC"
-          else
-            ""
-          end
+        def sorting(type, order)
+          return "#{type} #{order}"
         end
       end
     end

@@ -9,6 +9,7 @@ module Badi
       version "v1", using: :path
 
       helpers Helpers::RoomSortingHelpers
+      helpers Helpers::FilteringHelpers
 
       format :json
       prefix :api
@@ -19,10 +20,15 @@ module Badi
           requires :bounds, type: String, bounds_checker: true
           requires :page, type: Integer
           requires :size, type: Integer
-          optional :sort, type: Integer, values: [2, 3]
+          optional :order_type, type: String, values: ["price"]
+          given :order_type do
+            requires :order, type: String, values: ["ASC", "asc", "DESC", "desc"]
+          end
+          optional :min, type: Integer, default: 0
+          optional :max, type: Integer, default: 10000
         end
         get do
-          @rooms = Room.within(params[:bounds]).paginate(page: params[:page], per_page: params[:size]).order(sorting(params[:sort]))
+          @rooms = Room.within(params[:bounds]).where(filtering(params[:min], params[:max])).order(sorting(params[:order_type], params[:order])).paginate(page: params[:page], per_page: params[:size])
           if @rooms.empty?
             raise Badi::V1::ExceptionsHandler::NoContent
           else
