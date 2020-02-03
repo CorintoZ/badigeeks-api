@@ -1,6 +1,17 @@
 require: rubocop-rails
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
 AllCops:
   Exclude:
+    - 'config.ru'
+    - 'Rakefile'
+    - 'app/channels/**/*'
+    - 'app/controllers/**/*'
+    - 'app/jobs/**/*'
+    - 'app/mailers/**/*'
+    - 'app/views/**/*'
     - 'bin/**/*'
     - 'config/**/*'
     - 'coverage/**/*'

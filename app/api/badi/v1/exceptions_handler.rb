@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Badi
   module V1
     module ExceptionsHandler
