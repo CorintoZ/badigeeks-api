@@ -16,16 +16,16 @@ module Badi
 
     class PhotosList < Grape::Entity
       expose :position
-      expose :url_small_photo
+      expose :url_small
     end
 
     class RoomList < Grape::Entity
       expose :id
       expose :title
       expose :price
-      expose :kind
+      expose :city
       expose :photos, using: Badi::Entities::PhotosList
-      expose :user, using: Badi::Entities::UserList
+      expose :owner, using: Badi::Entities::UserList 
     end
   end
 end
