@@ -17,6 +17,7 @@ module Badi
     class PhotosList < Grape::Entity
       expose :position
       expose :url_small
+      expose :url_big
     end
 
     class RoomList < Grape::Entity
