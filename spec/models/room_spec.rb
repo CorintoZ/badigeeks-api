@@ -24,7 +24,7 @@ RSpec.describe Room, type: :model do
   end
 
   it 'validate description max title' do
-    should validate_length_of(:description).is_at_most(1000)
+    should validate_length_of(:description).is_at_most(5000)
   end
 
   it 'validate city min/max title' do

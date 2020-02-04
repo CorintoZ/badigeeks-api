@@ -1,10 +1,12 @@
+include Pagy::Backend
+
 module Badi
-  require 'active_record/errors'
+  require "active_record/errors"
 
   module V1
     class Rooms < Grape::API
-      require_relative './validations/bounds_checker'
-      version 'v1', using: :path
+      require_relative "./validations/bounds_checker"
+      version "v1", using: :path
 
       helpers Helpers::RoomSortingHelpers
       helpers Helpers::FilteringHelpers
@@ -13,12 +15,12 @@ module Badi
       prefix :api
 
       resource :rooms do
-        desc 'Return rooms'
+        desc "Return rooms"
         params do
           requires :bounds, type: String, bounds_checker: true
           requires :page, type: Integer
           requires :size, type: Integer
-          optional :order_type, type: String, values: ['price']
+          optional :order_type, type: String, values: ["price"]
           given :order_type do
             requires :order, type: String, values: %w[ASC asc DESC desc]
           end
@@ -26,13 +28,15 @@ module Badi
           optional :max, type: Integer, default: 10_000
         end
         get do
-          @rooms = Room.within(params[:bounds]).where(filtering(params[:min], params[:max])).order(sorting(params[:order_type], params[:order])).paginate(page: params[:page], per_page: params[:size])
+          @rooms = Room.within(params[:bounds]).where(filtering(params[:min], params[:max])).order(sorting(params[:order_type], params[:order]))
           raise Badi::V1::ExceptionsHandler::NoContent if @rooms.empty?
 
-          present @rooms, with: Badi::Entities::RoomList
+          @pagy, @records = pagy(@rooms, items: params[:size])
+
+          present @records, with: Badi::Entities::RoomList
         end
 
-        desc 'Return specific room'
+        desc "Return specific room"
         route_param :id do
           get do
             room = Room.find(params[:id])
