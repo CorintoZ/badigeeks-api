@@ -13,6 +13,9 @@ module Badi
         rescue_from Grape::Exceptions::ValidationErrors do |e|
           error!(e, 400)
         end
+        rescue_from Pagy::OverflowError do |e|
+          error!(e, 204)
+        end
         rescue_from NoContent do |e|
           error!(e, 204)
         end
