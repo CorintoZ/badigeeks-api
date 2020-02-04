@@ -31,7 +31,8 @@ module Badi
           @rooms = Room.within(params[:bounds]).where(filtering(params[:min], params[:max])).order(sorting(params[:order_type], params[:order]))
           raise Badi::V1::ExceptionsHandler::NoContent if @rooms.empty?
 
-          @pagy, @records = pagy(@rooms, items: params[:size], page: params[:page])
+          @pagy, @records = pagy(@rooms, items: params[:size])
+
           present @records, with: Badi::Entities::RoomList
         end
 
