@@ -41,9 +41,7 @@ module Badi
         route_param :id do
           get do
             @room = Room.find(params[:id])
-            puts @room.owner.class
             @room.similar_rooms = similar_rooms(@room.lng, @room.lat, @room.price)
-            puts @room.similar_rooms.class
             present @room, with: Badi::Entities::RoomDetail
           end
         end
