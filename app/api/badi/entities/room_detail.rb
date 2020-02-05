@@ -32,7 +32,7 @@ module Badi
       expose :flat_size
       expose :photos, using: Badi::Entities::PhotosDetail
       expose :owner, using: Badi::Entities::UserDetail
-      expose :similar_rooms
+      expose :similar_rooms, using: Badi::Entities::RoomList
     end
   end
 end
