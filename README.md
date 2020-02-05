@@ -1,4 +1,26 @@
-# Room search API based on Badi
+<h1 align="center">
+  <br>
+  <img src="https://imgur.com/aRYlevx.jpeg" alt="Markdownify" width="200"></a>
+  <br>
+  Pilotes Squad
+  <br>
+</h1>
+
+<h4 align="center">The new disruptive way of searching rooms</h4>
+
+<p align="center">
+  <a>
+    <img src="https://travis-ci.org/anfederico/Clairvoyant.svg?branch=master"
+        >
+  </a>
+  <a ><img src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg">
+	</a>
+  <a >
+    <img src="https://img.shields.io/badge/contributions-welcome-orange.svg">
+  </a>
+</p>
+
+# Room search API based on Badi :bread:
 This project is a RoR API that reproduces the main behavior of [Badi](https://badi.com/es).
 The main features that our API implements are:
 
@@ -21,7 +43,7 @@ The main features that our API implements are:
  - PostgreSQL 12
  - PostGIS 12
 
-## First CLONE setup
+## First CLONE setup 
 Make sure all [requirements](https://github.com/CorintoZ/badigeeks-api#Requirements) are available and clone the repository:
 ```bash
 git clone https://github.com/assimovt/badigeeks-api.git
@@ -87,7 +109,7 @@ $ rails db:create
 
 
 -   GET List rooms
-	- URI: /rooms?bounds=2.109375,41.345887,2.254601,41.445557&page=1&size=20&order_type=price&order=ASC&min=1&max=500
+	- URI: /rooms?bounds=2.109375,41.345887,2.254601,41.445557&page=1&size=20&order_type=price&order=ASC
 	- Return all the rooms within the perimeter
 	- [Working example](https://desolate-cove-97654.herokuapp.com/api/v1/rooms?bounds=2.109375,41.345887,2.254601,41.445557&page=1&size=30&order_type=price&order=asc&min=300&max=650)
     
