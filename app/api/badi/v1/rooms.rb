@@ -1,12 +1,12 @@
 include Pagy::Backend
 
 module Badi
-  require "active_record/errors"
+  require 'active_record/errors'
 
   module V1
     class Rooms < Grape::API
-      require_relative "./validations/bounds_checker"
-      version "v1", using: :path
+      require_relative './validations/bounds_checker'
+      version 'v1', using: :path
 
       helpers Helpers::RoomSortingHelpers
       helpers Helpers::FilteringHelpers
@@ -16,12 +16,12 @@ module Badi
       prefix :api
 
       resource :rooms do
-        desc "Return rooms"
+        desc 'Return rooms'
         params do
           requires :bounds, type: String, bounds_checker: true
           requires :page, type: Integer
           requires :size, type: Integer
-          optional :order_type, type: String, values: ["price"]
+          optional :order_type, type: String, values: ['price']
           given :order_type do
             requires :order, type: String, values: %w[ASC asc DESC desc]
           end
@@ -37,7 +37,7 @@ module Badi
           present @records, with: Badi::Entities::RoomList
         end
 
-        desc "Return specific room"
+        desc 'Return specific room'
         route_param :id do
           get do
             @room = Room.find(params[:id])

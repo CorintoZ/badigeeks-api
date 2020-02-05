@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
   has_many :photos, dependent: :destroy
-  belongs_to :owner, class_name: "User", foreign_key: "user_id"
+  belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
   attr_accessor :similar_rooms
   reverse_geocoded_by :lat, :lng
 
@@ -14,7 +14,7 @@ class Room < ApplicationRecord
   validates :lat, presence: true, numericality: { only_float: true, greater_than_or_equal_to: -90, less_than_or_equal_to: +90 }
   validates :lng, presence: true, numericality: { only_float: true, greater_than_or_equal_to: -180, less_than_or_equal_to: +180 }
   scope :within, lambda { |bounds|
-    bounds = bounds.split(",")
+    bounds = bounds.split(',')
     where(%{ rooms.room_lnglat && ST_MakeEnvelope(?,?,?,?)
     }, bounds[0].to_f, bounds[1].to_f, bounds[2].to_f, bounds[3].to_f)
   }
