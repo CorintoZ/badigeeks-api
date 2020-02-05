@@ -20,6 +20,24 @@
   </a>
 </p>
 
+<p align="center">
+	<strong>
+		<a href="https://github.com/corintoz/badigeeks-api#requirements">Requirements</a>
+		•
+		<a href="https://github.com/corintoz/badigeeks-api#gems">First setup</a>
+		•
+		<a href="https://github.com/corintoz/badigeeks-api#requirements">Gems</a>
+		•
+		<a href="https://github.com/corintoz/badigeeks-api#requirements">Gems</a>
+		•
+		<a href="https://github.com/corintoz/badigeeks-api#requirements">License</a>
+		•
+		<a href="https://github.com/corintoz/badigeeks-api#requirements">Links</a>
+		•
+		<a href="https://github.com/corintoz/badigeeks-api#requirements">Wiki</a>
+	</strong>
+</p>
+
 # Room search API based on Badi :bread:
 This project is a RoR API that reproduces the main behavior of [Badi](https://badi.com/es).
 The main features that our API implements are:
@@ -29,15 +47,7 @@ The main features that our API implements are:
  - Detailed room representation
  -  Similar rooms based on location and price
  
-## Table of content :pushpin:
-
- -   [Requirements](https://github.com/corintoz/badigeeks-api#requirements)
- -   [First setup](https://github.com/corintoz/badigeeks-api#gems)
- -   [Gems](https://github.com/corintoz/badigeeks-api#requirements)
- -   [License](https://github.com/corintoz/badigeeks-api#requirements)
- -   [Links](https://github.com/corintoz/badigeeks-api#requirements)
- 
-## Requirements
+## Requirements :pushpin:
  - Ruby 2.6.5
  - Rails > 6.0.2.1
  - PostgreSQL 12
@@ -138,7 +148,10 @@ $ rails db:create
 ## Models structure and associations :hammer:
 The current approach for the model structure can be found in the image below. It includes the defined models with its fields and associations among them.
 
-![models list](public/badi_project_models.png).
+<p align="center">
+  <img src="public/badi_project_models.png">
+</p>
+
 
 ## Fill the database :floppy_disk:
 
