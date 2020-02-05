@@ -1,6 +1,8 @@
 class Room < ApplicationRecord
   has_many :photos, dependent: :destroy
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
+  attr_accessor :similar_rooms
+  reverse_geocoded_by :lat, :lng
 
   validates :title, presence: true, length: { minimum: 1, maximum: 1000 }
   validates :price, presence: true, numericality: { only_float: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 10_000 }
