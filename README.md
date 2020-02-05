@@ -22,13 +22,13 @@
 
 <p align="center">
 	<strong>
-		<a href="https://github.com/corintoz/badigeeks-api#requirements">Requirements</a>
+		<a href="https://github.com/corintoz/badigeeks-api#requirements-:pushpin:">Requirements</a>
 		•
-		<a href="https://github.com/corintoz/badigeeks-api#gems">First setup</a>
+		<a href="https://github.com/corintoz/badigeeks-api#first-setup">First setup</a>
 		•
-		<a href="https://github.com/corintoz/badigeeks-api#requirements">Gems</a>
+		<a href="https://github.com/corintoz/badigeeks-api#gems-:gem:">Gems</a>
 		•
-		<a href="https://github.com/corintoz/badigeeks-api#endpoints">Enpoints</a>
+		<a href="https://github.com/corintoz/badigeeks-api#endpoints-:round_pushpin:">Endpoints</a>
 		•
 		<a href="https://github.com/corintoz/badigeeks-api#requirements">Links</a>
 		•
@@ -51,7 +51,7 @@ The main features that our API implements are:
  - PostgreSQL 12
  - PostGIS 12
 
-## First CLONE setup 
+## First setup 
 Make sure all [requirements](https://github.com/CorintoZ/badigeeks-api#Requirements) are available and clone the repository:
 ```bash
 git clone https://github.com/assimovt/badigeeks-api.git
