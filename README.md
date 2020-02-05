@@ -28,9 +28,7 @@
 		•
 		<a href="https://github.com/corintoz/badigeeks-api#requirements">Gems</a>
 		•
-		<a href="https://github.com/corintoz/badigeeks-api#requirements">Gems</a>
-		•
-		<a href="https://github.com/corintoz/badigeeks-api#requirements">License</a>
+		<a href="https://github.com/corintoz/badigeeks-api#endpoints">Enpoints</a>
 		•
 		<a href="https://github.com/corintoz/badigeeks-api#requirements">Links</a>
 		•
