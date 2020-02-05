@@ -1,121 +1,127 @@
-# First CLONE setup
+# Room search API based on Badi
+This project is a RoR API that reproduces the main behavior of [Badi](https://badi.com/es).
+The main features that our API implements are:
 
-   Make sure you have postgresql and pgadmin installed to interact with the database, lastest version work
-   <https://wwww.postgresql.org/download>
-   <https://www.pgadmin.org/download/>
+ - Search locations based on user input
+ - Search rooms by location (bounding box)
+ - Detailed room representation
+ -  Similar rooms based on location and price
+ 
+## Table of content :pushpin:
 
-   Open pgAdmin make sure you have a server running, add new server with default configuration. Remember credentials
-   DEFAULT username = postgres
-
-   git clone https://github.com/assimovt/badigeeks-api.git
-
-   bundle install
-
-   cp .env .env.local
-
-   Modify .env.local with your local database credentials, .env is just for production
-
-   rails db:create
-
-## Setup and configure Heroku
-
-Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) on your development machine. Once installed, the heroku command is available from your terminal.
-
-Log in using your Heroku account’s email address and password:
-
-```bash
-heroku login
-```
-
-As collaborator you should be in your master branch to add the heroku remote with this:
-
-```bash
-heroku git:remote desolate-cove-97654
-```
-
-Verify that the remote was added to your project by running:
-
-```bash
-$ git config --list | grep heroku
-     remote.heroku.url=https://git.heroku.com/secret-tor-42278.gitremote.heroku.fetch=+refs/heads/*:refs/remotes/heroku/*
-```
-
-**Always verify that master is a working branch before deploying.**
-
-Deploy your code with:
-
-```bash
-git push heroku master
-```
-
-If you are using the database in your application, you need to manually migrate the database by running:
-
-```bash
-heroku run rake db:migrate
-```
-
-We can now visit the app in our browser with:
-
-```bash
-heroku open
-```
-
-You can also get the full stream of logs by running the logs command with the --tail flag option like this:$
-
-```shell
-heroku logs --tail
-```
-
-More details on the official Heroku documentation
-
- 1. [Getting Started on Heroku with Rails 5.x](https://devcenter.heroku.com/articles/getting-started-with-rails5#migrate-your-database)
- 2. [Getting Started as a Collaborator](https://devcenter.heroku.com/articles/collab#deploy-the-app)
-
+ -   [Requirements](https://github.com/corintoz/badigeeks-api#requirements)
+ -   [First setup](https://github.com/corintoz/badigeeks-api#gems)
+ -   [Gems](https://github.com/corintoz/badigeeks-api#requirements)
+ -   [License](https://github.com/corintoz/badigeeks-api#requirements)
+ -   [Links](https://github.com/corintoz/badigeeks-api#requirements)
+ 
 ## Requirements
+ - Ruby 2.6.5
+ - Rails > 6.0.2.1
+ - PostgreSQL 12
+ - PostGIS 12
 
-- Ruby 2.5 or higher
-- MySQL 5.7 or higher
+## First CLONE setup
+Make sure all [requirements](https://github.com/CorintoZ/badigeeks-api#Requirements) are available and clone the repository:
+```bash
+git clone https://github.com/assimovt/badigeeks-api.git
+```
+Install all the gems
+```bash
+$ bundle install
+```
+As the project uses dotenv, you must setup your environment credentials in side a new file:
+```bash
+$ cp .env .env.development.local
+```
+Once the credentials for the database are set, you should create the database
+```bash
+$ rails db:create
+```
 
-Or Docker Compose with the same requirements.
+## Gems :gem:
 
-## Recommended git workflow
-You can work with only one special branch: `master`. Then, to add new features you can just use meaningful names to create a new branch that will be merged through a PR to `master`. Find more details about this git workflow [here](https://guides.github.com/introduction/flow/).
+- [Activerecord-postgis-adapter](https://github.com/rgeo/activerecord-postgis-adapter)
 
-## Architecture
-The architecture that we follow at the moment @ badi is heavily based on **service objects**. You can find tons of articles about this, but [this one](https://medium.com/selleo/essential-rubyonrails-patterns-part-1-service-objects-1af9f9573ca1) is quite simple and uses the same naming and conventions that we follow.
+- [Brakeman](https://github.com/presidentbeef/brakeman)
 
-Also, keep in mind that we use **Grape over Rails**, which means that **we don't use Rails controllers**. Find everything related to endpoints in `app/api/badi/`.
+- [Database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
 
-## Testing
-We don't mind if we prefer to use TDD or test it after developing the code. However, we expect to have a good code coverage, as close as you can to 100%, but also tests that are significant and stable.
+- [Factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
 
-To check your test suite you can simply run `bundle exec rspec`, and after the execution, you can open the coverage report `open coverage/index.html`.
+- [Faker](https://github.com/faker-ruby/faker)
 
-## Guidelines
-We encourage you to use [Rubocop](https://github.com/rubocop-hq/rubocop) and keep the code clean of offenses. Of course, you might find some rules that you don't like it, feel free to customize those if the team agreed.
+- [Geocoder](https://github.com/alexreisner/geocoder)
+
+- [Grape](https://github.com/ruby-grape/grape)
+
+- [Grape-entity](https://github.com/ruby-grape/grape-entity)
+
+- [Pagy](https://github.com/ddnexus/pagy)
+
+- [Pg](https://github.com/ged/ruby-pg/)
+
+- [Rspec-rails](https://github.com/rspec/rspec-rails)
+
+- [Rubocop-rails](https://github.com/rubocop-hq/rubocop-rails)
+
+- [Shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+
+- [Simplecov](https://github.com/colszowka/simplecov)
+
+## Endpoints :round_pushpin:
+
+-   GET Location query
+	- URI: /locations?keyword=place
+	- Return all the locations that match the keyword parameter
+	- Uses [Nominatim]([http://nominatim.org/](http://nominatim.org/)) as search engine
+	- [Working example]([https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona))
+    
+ 
+
+| Mandatory params  | Value | Notes |
+| :---         |     :---         |     :---   |
+| keyword  | “Any place you want to search rooms”     | Must contain at least 3 letters to work properly    |
 
 
-## Deploy on Heroku
-1 .- Download heroku client:
-  https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-2.- Login with the command  "$ heroku login" and use our badi account
-  E-mail: BadiGeeksHubBackend@gmail.com
-  Password: W0rk1ngfr0mb4d1
-3.- Add Heroku remote:
-  $ heroku git:remote -a geekshubbadi
-4.- Push the app to the  remote heroku by using:
-  $ git push heroku master
-5.- Deployed!
 
 
-## Models structure and associations
+-   GET List rooms
+	- URI: /rooms?bounds=2.109375,41.345887,2.254601,41.445557&page=1&size=20&order_type=price&order=ASC&min=1&max=500
+	- Return all the rooms within the perimeter
+	- [Working example]([https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona))
+    
+ 
+
+| Mandatory params  | Value | Notes |
+| :---         |     :---         |     :---   |
+| bounds |  “minimumLongitude, minimumLatitude, maximumLongitude, maximumLatitude”     | Bounds represents the square where you want to look for rooms    |
+
+| Optional params  | Value | Notes |
+| :---         |     :---         |     :---   |
+| page |  1…*     | Overflow is handled    |
+| size|  1…*     | Specify how many items per page. Overflow is handled   |
+| order_type|  “the attribute you want to use to sort”     |  You can only sort by “price” at the moment  |
+| order| [ASC, asc, DESC, desc]    |   |
+| min| 1...10000 | Limit minimum price  |
+| max| 1...10000 | Limit maximum price  |
+
+
+-   GET Specific room
+	- URI: /rooms/:id
+	- Return the details of a specific room by the room id
+	- [Working example]([https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona))
+
+
+## Models structure and associations :hammer:
 The current approach for the model structure can be found in the image below. It includes the defined models with its fields and associations among them.
 
 ![models list](public/badi_project_models.png).
 
-If any changes are made to the models, the diagram can be edited by navigating to https://www.draw.io/ and importing the badi_project_models.xml file which can be found in the public project folder.
-
-## Fill the database
+## Fill the database :floppy_disk:
 
 In order to fill the database, you will have to execute the following command:
-   rake web_sc_namespace:web_scrapping
+```bash
+rake badi_api_request: request_fill_db
+```
+This task scrapes the data from Badi’s API in order to use real data.
