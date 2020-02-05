@@ -75,7 +75,7 @@ $ rails db:create
 	- URI: /locations?keyword=place
 	- Return all the locations that match the keyword parameter
 	- Uses [Nominatim]([http://nominatim.org/](http://nominatim.org/)) as search engine
-	- [Working example]([https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona))
+	- [Working exemple](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=poble+sec)
     
  
 
@@ -89,7 +89,7 @@ $ rails db:create
 -   GET List rooms
 	- URI: /rooms?bounds=2.109375,41.345887,2.254601,41.445557&page=1&size=20&order_type=price&order=ASC&min=1&max=500
 	- Return all the rooms within the perimeter
-	- [Working example]([https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona))
+	- [Working example](https://desolate-cove-97654.herokuapp.com/api/v1/rooms?bounds=2.109375,41.345887,2.254601,41.445557&page=1&size=30&order_type=price&order=asc&min=300&max=650)
     
  
 
@@ -110,7 +110,7 @@ $ rails db:create
 -   GET Specific room
 	- URI: /rooms/:id
 	- Return the details of a specific room by the room id
-	- [Working example]([https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona](https://desolate-cove-97654.herokuapp.com/api/v1/locations?keyword=barcelona))
+	- [Working example](https://desolate-cove-97654.herokuapp.com/api/v1/rooms/62e04ce0-dd26-4ea6-9099-5aa80ebbe149)
 
 
 ## Models structure and associations :hammer:
