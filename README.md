@@ -22,13 +22,13 @@
 
 <p align="center">
 	<strong>
-		<a href="https://github.com/corintoz/badigeeks-api#requirements-:pushpin:">Requirements</a>
+		<a href="https://github.com/corintoz/badigeeks-api#requirements:pushpin:">Requirements</a>
 		•
 		<a href="https://github.com/corintoz/badigeeks-api#first-setup">First setup</a>
 		•
-		<a href="https://github.com/corintoz/badigeeks-api#gems-:gem:">Gems</a>
+		<a href="https://github.com/corintoz/badigeeks-api#gems:gem:">Gems</a>
 		•
-		<a href="https://github.com/corintoz/badigeeks-api#endpoints-:round_pushpin:">Endpoints</a>
+		<a href="https://github.com/corintoz/badigeeks-api#endpoints:round_pushpin:">Endpoints</a>
 		•
 		<a href="https://github.com/corintoz/badigeeks-api#requirements">Links</a>
 		•
