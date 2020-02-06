@@ -143,9 +143,8 @@ $ rails db:create
 The current approach for the model structure can be found in the image below. It includes the defined models with its fields and associations among them.
 
 <p align="center">	
-  <img src="https://imgur.com/edimAE0.jpeg"></a>
+  <img src="https://imgur.com/qQKtDNS.jpeg"></a>
 </p>
-
 
 ## Fill the database :floppy_disk:
 
