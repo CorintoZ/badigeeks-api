@@ -8,7 +8,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use mysql as the database for Active Record
 gem 'pg', '>= 1.2.2'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Use Grape as the framework for creating REST-like APIs
 gem 'grape', '~> 1.2'
 gem 'grape-entity'
